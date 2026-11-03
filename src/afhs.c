@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #define AFHS_CONFIG_PATH "/etc/aesthetic-fhs.conf"
@@ -415,6 +416,21 @@ static int afhs_load(struct afhs_client *client, const char *filename)
 				filename, line_number);
 			result = -1;
 			break;
+		}
+		{
+			struct stat status;
+
+			if (lstat(path, &status) < 0) {
+				if (errno == ENOENT || errno == ENOTDIR) {
+					free(path);
+					continue;
+				}
+				fprintf(stderr, "afhs: cannot stat %s:%lu: %s\n",
+					filename, line_number, strerror(errno));
+				result = -1;
+				free(path);
+				break;
+			}
 		}
 		if (afhs_request(client, AFHS_CMD_HIDE, path) < 0) {
 			fprintf(stderr, "afhs: cannot hide %s:%lu\n", filename,
