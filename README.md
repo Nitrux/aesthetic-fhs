@@ -3,7 +3,9 @@
 Userspace controller for Nitrux's Aesthetic FHS.
 
 `afhs` controls the directory presentation used by Aesthetic FHS through the
-kernel's Generic Netlink interface. See the [afhs wiki](https://github.com/Nitrux/aesthetic-fhs/wiki) for usage, configuration, and implementation details.
+kernel's Generic Netlink interface.
+
+See the [afhs wiki](https://github.com/Nitrux/aesthetic-fhs/wiki) for usage, configuration, and implementation details.
 
 ## Requirements
 
