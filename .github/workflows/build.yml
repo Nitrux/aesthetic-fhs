@@ -37,8 +37,8 @@ jobs:
           cat <<EOF > /etc/apt/sources.list.d/debian.sources
           Types: deb
           URIs: https://snapshot.debian.org/archive/debian/20261013T082854Z
-          Suites: testing testing-updates
-          Components: main non-free non-free-firmware contrib
+          Suites: testing
+          Components: main
           Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
           Architectures: amd64
           EOF
@@ -80,8 +80,8 @@ jobs:
           cat <<EOF > /etc/apt/sources.list.d/debian.sources
           Types: deb
           URIs: https://snapshot.debian.org/archive/debian/20261013T082854Z
-          Suites: testing testing-updates
-          Components: main non-free non-free-firmware contrib
+          Suites: testing
+          Components: main
           Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
           Architectures: arm64
           EOF
