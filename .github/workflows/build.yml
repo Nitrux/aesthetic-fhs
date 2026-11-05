@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: Install CA certificates
-        run: apt update && apt install -y ca-certificates
+        run: apt update && apt install --no-install-recommends -y ca-certificates
 
       - name: Update APT sources and upgrade
         run: |
@@ -42,7 +42,7 @@ jobs:
           EOF
           apt update && apt full-upgrade -y
       - name: Setup amd64 environment
-        run: apt install -y build-essential devscripts git gnupg lintian ruby-full sudo
+        run: apt install --no-install-recommends -y build-essential devscripts git gnupg lintian ruby-full sudo
       - run: gem install package_cloud
       - uses: actions/checkout@v4
       - name: Install build dependencies
@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Install CA certificates
-        run: apt update && apt install -y ca-certificates
+        run: apt update && apt install --no-install-recommends -y ca-certificates
 
       - name: Update APT sources and upgrade
         run: |
@@ -83,7 +83,7 @@ jobs:
           EOF
           apt update && apt full-upgrade -y
       - name: Setup arm64 environment
-        run: apt install -y build-essential devscripts git gnupg lintian ruby-full sudo
+        run: apt install --no-install-recommends -y build-essential devscripts git gnupg lintian ruby-full sudo
       - run: gem install package_cloud
       - uses: actions/checkout@v4
       - name: Install build dependencies
