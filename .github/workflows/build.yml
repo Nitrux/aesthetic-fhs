@@ -60,7 +60,7 @@ jobs:
   build-arm64:
     runs-on: ubuntu-24.04-arm
     container:
-      image: arm64v8/testing-20260713-slim
+      image: arm64v8/debian:testing-20260713-slim
       env:
         DEBIAN_FRONTEND: noninteractive
         PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
